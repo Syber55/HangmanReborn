@@ -1,5 +1,8 @@
 package hangman.DAO;
 
-public class CategoryDAO {
+import hangman.model.Category;
 
+public interface CategoryDAO {
+
+	public static void 
 }
