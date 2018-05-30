@@ -1,10 +1,13 @@
 package hangman.DAO;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 import hangman.model.User;
 
 public interface UserDAO {
 
-	public static void addUser (User user); //Dodaje korisnika u bazu
+	public void addUser (User user) throws SQLException; //Dodaje korisnika u bazu
 	
-	public static ArrayList<User> getUsers();//Vraæa sve korisnike iz baze u niz
+	public ArrayList<User> getUsers() throws SQLException;//Vraæa sve korisnike iz baze u niz
 }

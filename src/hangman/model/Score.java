@@ -8,6 +8,14 @@ public class Score {
  public Score() {
  }
 
+public Score(int scoreID, int score, String username) {
+	this.scoreID = scoreID;
+	this.score = score;
+	this.username = username;
+}
+
+
+
 public int getScoreID() {
 	return scoreID;
 }

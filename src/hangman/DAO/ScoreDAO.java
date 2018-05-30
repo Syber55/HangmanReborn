@@ -1,12 +1,15 @@
 package hangman.DAO;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 import hangman.model.Score;
 
 public interface ScoreDAO {
 
-	public static void addScoreToDB(Score score);//Služit æe za dodavanje novog skora u bazu
+	public void addScoreToDB(Score score) throws SQLException;//Služit æe za dodavanje novog skora u bazu
 	
-	public static ArrayList<Score> topTenScores();//Top 10 bodovanja, vraæa score objekte u niz
+	public ArrayList<Score> topTenScores() throws SQLException;//Top 10 bodovanja, vraæa score objekte u niz
 	
-	public static ArrayList<Score> getScores();//Vraæa sva bodovanja u tabeli
+	public ArrayList<Score> getScores() throws SQLException;//Vraæa sva bodovanja u tabeli
 }
