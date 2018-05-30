@@ -1,5 +1,5 @@
 package hangman.DAO;
 
-public class ScoreDAO {
+public interface ScoreDAO {
 
 }

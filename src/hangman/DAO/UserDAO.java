@@ -1,5 +1,5 @@
 package hangman.DAO;
 
-public class UserDAO {
+public interface UserDAO {
 
 }

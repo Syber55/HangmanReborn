@@ -3,11 +3,20 @@ package hangman.model;
 import java.util.ArrayList;
 
 public class Word {
+	int wordID;
 	String word;
 	int categoryID;
 	ArrayList<Word> words = new ArrayList<>();
 	
 	public Word() {}
+	
+	public int getWordID() {
+		return wordID;
+	}
+
+	public void setWordID(int wordID) {
+		this.wordID = wordID;
+	}
 
 	public String getWord() {
 		return word;
