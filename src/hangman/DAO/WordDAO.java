@@ -9,3 +9,4 @@ public interface WordDAO {
 	public static ArrayList<Word> getWords();
 	
 	public static ArrayList<Word> getWordsByCategory(int id);
+}

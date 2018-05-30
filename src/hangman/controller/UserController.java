@@ -15,5 +15,9 @@ public class UserController {
 		return false;
 	}
 	
+	public static void addUser(String username, String password) {
+		//Kreira user objekat i dodjeljuje mu korisnièko ime i šifru
+	}
+	
 	//kasnije æemo ubacit filtraciju protiv sql injection
 }
