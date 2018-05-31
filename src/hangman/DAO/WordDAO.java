@@ -1,12 +1,13 @@
 package hangman.DAO;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import hangman.model.Word;
 
 public interface WordDAO {
 
-	public static ArrayList<Word> getWords();
+	public ArrayList<Word> getWords() throws SQLException;
 	
-	public static ArrayList<Word> getWordsByCategory(int id);
+	public ArrayList<Word> getWordsByCategory(int id) throws SQLException;
 }

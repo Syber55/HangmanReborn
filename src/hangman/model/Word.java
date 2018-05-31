@@ -8,8 +8,16 @@ public class Word {
 	int categoryID;
 	ArrayList<Word> words = new ArrayList<>();
 	
-	public Word() {}
+	public Word() {
+		
+	}
 	
+	public Word(int wordID, String word, int categoryID) {
+		this.wordID = wordID;
+		this.word = word;
+		this.categoryID = categoryID;
+	}
+
 	public int getWordID() {
 		return wordID;
 	}
