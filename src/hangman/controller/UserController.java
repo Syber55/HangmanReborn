@@ -5,19 +5,30 @@ import hangman.*;
 public class UserController {
 	
 	public static boolean isUniqueUsername(String username) {
-		//Provjerava da li je korisnièko ime jedinstveno
-		//Povlaèi ArrayList-u iz user klase i prolazi kroz svakog korisnika
+		//Provjerava da li je korisniÃ¨ko ime jedinstveno
+		//PovlaÃ¨i ArrayList-u iz user klase i prolazi kroz svakog korisnika
 		return false;
 	}
 	
 	public static boolean isPasswordStrong(String password) {
-		//Provjerava da li je šifra dovoljno jaka(mora imati barem 8 karaktera)
-		return false;
+		//Provjerava da li je Å¡ifra dovoljno jaka(mora imati barem 8 karaktera)
+		
+		if (password.length() < 8) {
+			return false;
+
+		} else {
+			for (int i = 0; i < password.length(); i++) {
+				if (Character.isUpperCase(password.charAt(i))) 
+				if (Character.isDigit(password.charAt(i)))
+
+			return true;
+		}
+
 	}
 	
 	public static void addUser(String username, String password) {
-		//Kreira user objekat i dodjeljuje mu korisnièko ime i šifru
+		//Kreira user objekat i dodjeljuje mu korisniÃ¨ko ime i Å¡ifru
 	}
 	
-	//kasnije æemo ubacit filtraciju protiv sql injection
+	//kasnije Ã¦emo ubacit filtraciju protiv sql injection
 }
