@@ -7,7 +7,7 @@ import hangman.model.Word;
 
 public interface WordDAO {
 
-	public ArrayList<Word> getWords() throws SQLException;
+	public void loadWords() throws SQLException;
 	
 	public ArrayList<Word> getWordsByCategory(int id) throws SQLException;
 }

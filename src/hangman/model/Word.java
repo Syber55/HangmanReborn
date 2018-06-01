@@ -6,7 +6,7 @@ public class Word {
 	int wordID;
 	String word;
 	int categoryID;
-	ArrayList<Word> words = new ArrayList<>();
+	public ArrayList<Word> words = new ArrayList<>();
 	
 	public Word() {
 		

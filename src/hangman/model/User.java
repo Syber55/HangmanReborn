@@ -5,7 +5,7 @@ public class User {
 	int userID;
 	String username;
 	String password;
-	ArrayList<User> users = new ArrayList<>();
+	public ArrayList<User> users = new ArrayList<>();
 	
 	public User() {
 	}

@@ -13,10 +13,9 @@ public class WordDAOImplementation implements WordDAO {
 	Connection connection = DBConnection.getConnectionToDatabase();
 
 	@Override
-	public ArrayList<Word> getWords() throws SQLException {
+	public void loadWords() throws SQLException {
 
-		ArrayList<Word> words = new ArrayList<>();
-
+	
 		String query = "SELECT * FROM words";
 
 		ResultSet rs = null;
@@ -27,10 +26,10 @@ public class WordDAOImplementation implements WordDAO {
 
 			while (rs.next()) {
 				Word word = new Word(rs.getInt("id"), rs.getString("word"), rs.getInt("categoryID"));
-				words.add(word);
+				word.words.add(word);
 			}
 		}
-		return words;
+		
 	}
 
 	@Override

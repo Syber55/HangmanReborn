@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import hangman.DAO.UserDAO;
 import hangman.DAO.UserDAOImplementation;
+import hangman.DAO.WordDAO;
+import hangman.DAO.WordDAOImplementation;
 
 /**
  * Servlet implementation class StartupServlet
@@ -30,9 +32,13 @@ public class StartupServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	UserDAO ud = new UserDAOImplementation();
+	WordDAO wd = new WordDAOImplementation();
+	
 	
 	try {
-		ud.getUsers();
+		ud.loadUsers();
+		wd.loadWords();
+		
 	} catch (SQLException e) {
 		e.printStackTrace();
 	}

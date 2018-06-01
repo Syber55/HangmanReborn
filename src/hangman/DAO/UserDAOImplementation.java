@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 import hangman.model.User;
 
@@ -28,9 +27,8 @@ public class UserDAOImplementation implements UserDAO {
 
 	}
 
-	public ArrayList<User> getUsers() throws SQLException {
+	public void loadUsers() throws SQLException {
 
-		ArrayList<User> users = new ArrayList<>();
 
 		String query = "SELECT * FROM users";
 
@@ -42,10 +40,9 @@ public class UserDAOImplementation implements UserDAO {
 
 			while (rs.next()) {
 				User user = new User(rs.getInt("id"), rs.getString("username"), rs.getString("password"));
-				users.add(user);
+				user.users.add(user);
 			}
 		}
-		return users;
 	}
 
 }
