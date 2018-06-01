@@ -28,7 +28,6 @@ public class UserDAOImplementation implements UserDAO {
 
 	}
 
-	@Override
 	public ArrayList<User> getUsers() throws SQLException {
 
 		ArrayList<User> users = new ArrayList<>();

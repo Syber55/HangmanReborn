@@ -23,11 +23,15 @@
 
 			<div class="rightPanel">
 				<div class="loginDetails">
-					<form name="form" action="loginController" method="post">
+					<form name="form" action="LoginServlet" method="post">
 						<p>${message }</p>
 						<label>Enter details to play</label> <input type="text"
-							name="username" placeholder="Username"> <input
-							type="password" name="password" placeholder="Password"> <input
+							name="username" placeholder="Username">
+							
+							 <input
+							type="password" name="password" placeholder="Password">
+							
+							 <input
 							type="submit" id="buttonStyle" name="submit" value="PLAY">
 						<input type="button" value="GO BACK" id="buttonStyle"
 							onclick="window.location.href='index.jsp'">
