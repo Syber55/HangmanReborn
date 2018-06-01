@@ -45,6 +45,10 @@ public class LoginServlet extends HttpServlet {
 			 RequestDispatcher rd =request.getRequestDispatcher("game.jsp");  
 	            rd.forward(request, response);  
 		}
+		else {
+			RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
+			rd.forward(request, response);
+		}
 	}
 	
 	@Override  

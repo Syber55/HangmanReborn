@@ -21,7 +21,7 @@
 
 			<div class="rightPanel">
 				<div class="loginDetails">
-					<form action="registrationController" method="post">
+					<form action="RegisterServlet" method="post">
 						<label>Sign Up</label> <input type="text" name="username"
 							placeholder="Username"> <input type="password"
 							name="password" placeholder="Password"> <input

@@ -16,7 +16,7 @@ public class DBConnection {
 			System.out.println("MySQL JDBC Driver Registered!");
 
 			// get hold of the DriverManager
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hangmandb", "root", "");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hangmandb?useSSL=false&serverTimezone=UTC", "root", "");
 		} catch (ClassNotFoundException e) {
 			System.out.println("Where is your MySQL JDBC Driver?");
 			e.printStackTrace();
