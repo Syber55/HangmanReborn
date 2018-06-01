@@ -9,12 +9,13 @@ public class GameController {
 		if(s.length() == 1) {
 			for (int i=0; i<game.word.length(); i++) {
 				if(game.word.charAt(i) == s.charAt(0)) {
-					game.guessedLetters+=s;
+					game.guessedLetters.add(s);
 					return true;
 				}
 			}
-			game.guessedLetters+=s;
+			game.guessedLetters.add(s);
 			scoreReduction(game);
+			game.missedLetters.add(s);
 			game.life--;
 			return false;
 		}

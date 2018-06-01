@@ -1,11 +1,12 @@
 package hangman.model;
-
+import java.util.ArrayList;
 public class Game {
 	public String word;
-	public String missedLetters;
-	public String guessedLetters;
+	public ArrayList<String> missedLetters;
+	public ArrayList<String> guessedLetters;
 	public int score = 100;
 	public int life = 5;
+	public ArrayList<String> missedWords;
 	
 	public Game() {}
 
@@ -17,22 +18,7 @@ public class Game {
 		this.word = word;
 	}
 
-	public String getMissedLetters() {
-		return missedLetters;
-	}
-
-	public void setMissedLetters(String missedLetters) {
-		this.missedLetters = missedLetters;
-	}
-
-	public String getGuessedLetters() {
-		return guessedLetters;
-	}
-
-	public void setGuessedLetters(String guessedLetters) {
-		this.guessedLetters = guessedLetters;
-	}
-
+	
 	public int getScore() {
 		return score;
 	}
