@@ -1,0 +1,169 @@
+@charset "ISO-8859-1";
+
+body, html {
+	height: 100%;
+	margin: 0;
+}
+
+.bg {
+	height: 100%;
+	width: 100%;
+	background-color: #15213b;
+	background-size: cover;
+}
+
+.container {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	margin: 0 auto;
+	width: 1024px;
+	height: 768px;
+	background-color: #ffffff;
+	box-shadow: 0px 4px 29px 0 rgba(0, 0, 0, 0.6);
+	width: 1024px;
+}
+
+.leftPanel {
+	width: 452px;
+	height: 768px;
+	float: left;
+}
+
+.rightPanel {
+	width: 572px;
+	height: 768px;
+	background-color: #37579c;
+	float: right;
+}
+
+#logo img {
+	width: 312px;
+	height: 143px;
+	margin-left: 71px;
+	margin-top: 301px;
+	object-fit: contain;
+}
+
+#gitIcon img {
+	width: 44px;
+	height: 43px;
+	margin-left: 205px;
+	margin-top: 242px;
+}
+
+#logoSmall img {
+	width: 146px;
+	height: 67px;
+	margin-left: 220px;
+	margin-top: 164px;
+	object-fit: contain;
+}
+
+#logoSmallRegister img {
+	width: 146px;
+	height: 67px;
+	margin-left: 220px;
+	margin-top: 77px;
+	object-fit: contain;
+}
+
+.loginDetails {
+	width: 400px;
+	height: auto;
+}
+
+form {
+	position: fixed;
+	width: 460px;
+	margin-top: 250px;
+}
+
+form label {
+	margin-left: 224px;
+	margin-bottom: 35px;
+	font-family: Roboto;
+	font-size: 24px;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: #ffffff;
+	font-family: Roboto;
+}
+
+#leaderboard {
+	padding-left: 35px;
+	margin-top: 35px;
+	font-family: Roboto;
+	font-size: 24px;
+}
+
+::-webkit-input-placeholder {
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	padding-left: 15px;
+	padding-top: 27px;
+	color: #540e0e;
+}
+
+input[type=text], input[type=password] {
+	margin-top: 15px;
+	margin-left: 102px;
+	width: 369px;
+	height: 45px;
+	border-radius: 20px;
+	background-color: #ffffff;
+	padding-left: 30px;
+	font-size: 20px;
+	width: 360px;
+	-webkit-transition: width .35s ease-in-out;
+	transition: width .35s ease-in-out;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+	width: 369px;
+}
+
+#buttonStyle {
+	margin-left: 130px;
+	margin-top: 15px;
+	width: 350px;
+	height: 60px;
+	border-radius: 20.8px;
+	background-color: #1f3462;
+	border: none;
+	color: white;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+#buttonStyle:hover {
+	background-color: #F44336;
+	color: white;
+}
+
+.buttonStyle {
+	margin-left: 130px;
+	margin-top: 15px;
+	width: 350px;
+	height: 60px;
+	border-radius: 20.8px;
+	background-color: #1f3462;
+	border: none;
+	color: white;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+.buttonStyle:hover {
+	background-color: #F44336;
+	color: white;
+}
