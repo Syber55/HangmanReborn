@@ -41,5 +41,18 @@ public class GameController {
 		}
 	}
 	
-	
+	public static String revealedWord (Game game) {
+		String shroudedWord = new String();
+		for (int i=0; i<game.word.length(); i++) {
+			shroudedWord+="-";
+		}
+		for (int i=0;i<game.guessedLetters.size(); i++) {
+			for (int j=0; j<shroudedWord.length(); j++) {
+				if(shroudedWord.charAt(j) == game.guessedLetters.get(i).charAt(0)) {
+					shroudedWord.replace('-', game.guessedLetters.get(i).charAt(0));
+				}
+			}
+		}
+		return shroudedWord;
+	}
 }
