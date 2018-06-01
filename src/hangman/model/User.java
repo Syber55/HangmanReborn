@@ -2,10 +2,10 @@ package hangman.model;
 import java.util.ArrayList;
 
 public class User {
-	int userID;
-	String username;
-	String password;
-	ArrayList<User> users = new ArrayList<>();
+	public int userID;
+	public String username;
+	public String password;
+	public ArrayList<User> users = new ArrayList<>();
 	
 	public User() {
 	}
