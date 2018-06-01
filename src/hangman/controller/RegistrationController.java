@@ -11,11 +11,9 @@ public class RegistrationController {
 		//Unese podatke i kreaira novog korisnika, unese ga  u niz korisnika i ubaci ga u bazu
 		//Koristi UserDAO addUser metodu
 		User user = new User();
-		
-		for (int i=0; i<user.users.size(); i++) {
-			if (username == user.users.get(i).username) {
-				return 1;
-			}
+		UserDAO ud = new UserDAOImplementation();
+		if(!ud.checkIfUnique(username)) {
+			return 1;
 		}
 		
 		if(password.length()<8) {
@@ -23,7 +21,6 @@ public class RegistrationController {
 		}
 		user.username = username;
 		user.password = password;
-		UserDAO ud = new UserDAOImplementation();
 		ud.addUser(user);
 		user.users.add(user);
 		return 3;

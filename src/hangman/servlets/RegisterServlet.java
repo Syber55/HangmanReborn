@@ -30,7 +30,6 @@ public class RegisterServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String submitType = request.getParameter("submit");
-		User user = new User();
 		RegistrationController rc = new RegistrationController();
 		int responseNum = 0;
 		try {

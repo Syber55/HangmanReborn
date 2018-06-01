@@ -1,6 +1,7 @@
 package hangman.servlets;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import hangman.model.User;
+import hangman.DAO.UserDAO;
+import hangman.DAO.UserDAOImplementation;
 import hangman.controller.LoginController;
 
 
@@ -34,9 +37,16 @@ public class LoginServlet extends HttpServlet {
 		
 		
 		LoginController lc = new LoginController();
+		UserDAO ud = new UserDAOImplementation();
 		
 		@SuppressWarnings("static-access")
-		boolean userValidate = lc.isUsernameAndPasswordCorrect(username, password);
+		boolean userValidate = false;
+		try {
+			userValidate = ud.checkUserAndPassword(username, password);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 

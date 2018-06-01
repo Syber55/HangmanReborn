@@ -15,7 +15,7 @@ public class UserDAOImplementation implements UserDAO {
 	@Override
 	public void addUser(User user) throws SQLException {
 
-		String query = "INSERT INTO users(username, password) VALUES (?, ?)";
+		String query = "INSERT INTO users(id, username, password) VALUES (default, ?, ?)";
 
 		try (PreparedStatement statement = connection.prepareStatement(query);) {
 
@@ -46,5 +46,43 @@ public class UserDAOImplementation implements UserDAO {
 			}
 		}
 	}
-
-}
+	
+	@Override
+	public boolean checkIfUnique(String userToCheck) throws SQLException {
+		String query = "SELECT username FROM users";
+		
+		ResultSet rs = null;
+		
+		try(Statement statement = connection.createStatement();){
+			rs = statement.executeQuery(query);
+			
+			while(rs.next()) {
+				System.out.println(rs.getString("username"));
+				if(rs.getString("username").equals(userToCheck)) {
+					System.out.println(userToCheck + "already exists");
+					return false;
+				}
+			}
+			return true;
+		}
+	}
+	
+	@Override
+	public boolean checkUserAndPassword(String username, String password) {
+		String query = "SELECT username, password FROM users";
+		
+		ResultSet rs = null;
+		
+		try(Statement statement = connection.createStatement();){
+			rs=statement.executeQuery(query);
+			
+			while(rs.next()) {
+				if(rs.getString("username").equals(username) && rs.getString("password").equals(password)) {
+					return true;
+				}
+			}}catch(SQLException e) {
+				System.err.println(e);
+			}
+			return false;
+		}
+	}
