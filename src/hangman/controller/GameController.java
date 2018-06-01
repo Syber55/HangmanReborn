@@ -48,7 +48,7 @@ public class GameController {
 		}
 		for (int i=0;i<game.guessedLetters.size(); i++) {
 			for (int j=0; j<shroudedWord.length(); j++) {
-				if(shroudedWord.charAt(j) == game.guessedLetters.get(i).charAt(0)) {
+				if(game.word.charAt(j) == game.guessedLetters.get(i).charAt(0)) {
 					shroudedWord.replace('-', game.guessedLetters.get(i).charAt(0));
 				}
 			}
