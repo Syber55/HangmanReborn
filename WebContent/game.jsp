@@ -61,7 +61,7 @@
 			<div class="rightPanel">
 				<div class="loginDetails">
 				
-					<form name="form" action="LoginServlet" method="post">
+					<form name="form" action="GameServlet" method="post">
 						<h1 style="color:white; margin-left:100px">
 					
 						Word:

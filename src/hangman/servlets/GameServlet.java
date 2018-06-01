@@ -1,6 +1,9 @@
 package hangman.servlets;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import hangman.DAO.WordDAO;
+import hangman.DAO.WordDAOImplementation;
+import hangman.controller.GameController;
 import hangman.model.Game;
 
 /**
@@ -40,11 +46,29 @@ public class GameServlet extends HttpServlet {
 
 		String guessLetter = enteredLetter;
 		Game game = new Game();
-
-		if (guessLetter.length() == 1) {
-			
-
-			
+		WordDAO wd = new WordDAOImplementation();
+		if(game.word == "empty") {
+		try {
+			game.word = wd.getRandomWord();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+		GameController gc = new GameController();
+		if(game.life == 0) {
+			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+			rd.forward(request, response);
+		}
+		
+		if(GameController.guessedLetterOrWord(guessLetter, game)) {
+			System.out.println(GameController.revealedWord(game));
+			RequestDispatcher rd = request.getRequestDispatcher("game.jsp");
+			rd.forward(request, response);
+		}
+		else {
+			RequestDispatcher rd = request.getRequestDispatcher("game.jsp");
+			rd.forward(request, response);
 		}
 
 	

@@ -13,6 +13,7 @@ public class GameController {
 					return true;
 				}
 			}
+			System.out.println(s);
 			game.guessedLetters.add(s);
 			scoreReduction(game);
 			game.missedLetters.add(s);

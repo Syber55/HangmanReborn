@@ -10,4 +10,6 @@ public interface WordDAO {
 	public void loadWords() throws SQLException;
 	
 	public ArrayList<Word> getWordsByCategory(int id) throws SQLException;
+	
+	public String getRandomWord() throws SQLException;
 }
