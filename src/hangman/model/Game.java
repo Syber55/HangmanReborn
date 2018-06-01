@@ -1,10 +1,11 @@
 package hangman.model;
 
 public class Game {
-	String word;
-	String missedLetters;
-	String guessedLetters;
-	int score = 100;
+	public String word;
+	public String missedLetters;
+	public String guessedLetters;
+	public int score = 100;
+	public int life = 5;
 	
 	public Game() {}
 

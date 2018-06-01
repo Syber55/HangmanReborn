@@ -1,6 +1,7 @@
 package hangman.DAO;
 
 import java.sql.SQLException;
+
 import hangman.model.User;
 
 public interface UserDAO {
