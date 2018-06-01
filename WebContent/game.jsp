@@ -13,14 +13,67 @@
 	<div class="bg">
 		<div class="container">
 			<div class="leftPanel">
-				<div id="logo"></div>
+			<img src="images/1.jpg" alt="IMG" width="470px" height="768px">
+				<div id="logo">
+				
+				<%if (request.getAttribute("wrongAnswers") !=null){
+ 					if ((int) (request.getAttribute("wrongAnswers")) ==0 ) {
+ 				%>
+					<img src= "images/1.jpg" alt="IMG">
+						<%
+ 					}
+ 				%>	
+ 				<%
+ 					if ((int) (request.getAttribute("wrongAnswers")) ==1 ) {
+ 				%>
+					<img src= "images/2.jpg" alt="IMG">
+						<%
+ 					}
+ 				%>	
+ 				<%
+ 					if ((int) (request.getAttribute("wrongAnswers")) ==2 ) {
+ 				%>
+					<img src= "images/3.jpg" alt="IMG">
+						<%
+ 					}
+ 				%>	
+ 				<%
+ 					if ((int) (request.getAttribute("wrongAnswers")) ==3 ) {
+ 				%>
+					<img src= "images/4.jpg" alt="IMG">
+						<%
+ 					}
+ 				%>	
+ 				<%
+ 					if ((int) (request.getAttribute("wrongAnswers")) ==4) {
+ 				%>
+					<img src= "images/5.jpg" alt="IMG">
+						<%
+ 					}
+					}
+ 				%>	
+				
+				
+				</div>
 
 			</div>
 
 			<div class="rightPanel">
 				<div class="loginDetails">
+				
 					<form name="form" action="LoginServlet" method="post">
-						<p>${message }</p>
+						<h1 style="color:white; margin-left:100px">
+					
+						Word:
+						<%
+						if (request.getAttribute("wordHolder") != null) {
+					%>
+						<%=request.getAttribute("wordHolder")%>
+						<%
+							}
+						%>
+					
+					</h1>
 						
 				
 
@@ -29,8 +82,8 @@
 						<input type="submit" id="buttonStyle" name="guess" value="GUESS">
 
 					</form>
-
-					<p style="color: white; margin-left:45px" >
+					<div style="margin-top: 60px">
+					<p style="color: white; margin-left:100px" >
 						Score:
 						<%
 						if (request.getAttribute("score") != null) {
@@ -42,7 +95,7 @@
 					</p>
 					
 					
-					<p style="color: white; margin-left:45px">
+					<p style="color: white; margin-left:100px; ">
 							Lives:
 							<%
 							if (request.getAttribute("wrongAnswers") != null) {
@@ -52,6 +105,19 @@
 								}
 							%>
 						</p>
+						
+						<p style="color: white; margin-left:100px">
+							Previous guesses:
+							<%
+							if (request.getAttribute("previouseGuesses") != null) {
+						%>
+							<%=request.getAttribute("previouseGuesses")%>
+							<%
+								}
+							%>
+						</p>
+						
+						</div>
 				</div>
 
 			</div>
