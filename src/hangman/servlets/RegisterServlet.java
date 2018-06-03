@@ -42,7 +42,7 @@ public class RegisterServlet extends HttpServlet {
 			System.out.println("User successfully registered");
 			
 			request.setAttribute("user", username);
-			RequestDispatcher rd = request.getRequestDispatcher("game.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 			rd.forward(request, response);
 		}
 	}

@@ -7,17 +7,30 @@ public class GameController {
 	
 	public static boolean guessedLetterOrWord(String s, Game game){
 		if(s.length() == 1) {
+			boolean bool = false;
+			for (int i=0; i<game.guessedLetters.size(); i++) {
+				if (game.guessedLetters.get(i) == s) {
+					bool = true;
+					break;
+				}
+			}
 			for (int i=0; i<game.word.length(); i++) {
 				if(game.word.charAt(i) == s.charAt(0)) {
-					game.guessedLetters.add(s);
+					if(!bool) {game.guessedLetters.add(s);
+					game.guessedLetterString+=s;}
+					System.out.println(revealedWord(game));
 					return true;
+
 				}
 			}
 			System.out.println(s);
+			
+			if (!bool) {
 			game.guessedLetters.add(s);
+			game.guessedLetterString+=s;
 			scoreReduction(game);
 			game.missedLetters.add(s);
-			game.life--;
+			game.life--;}
 			return false;
 		}
 		else if(s.length()>1){
@@ -42,18 +55,49 @@ public class GameController {
 		}
 	}
 	
-	public static String revealedWord (Game game) {
+	/*public static String revealedWord (Game game) {
 		String shroudedWord = new String();
-		for (int i=0; i<game.word.length(); i++) {
-			shroudedWord+="-";
+		boolean bool = false;
+		for (int i=0;i<game.word.length(); i++) {
+			for (int j=0; j<game.guessedLetters.size(); j++) {
+				if(game.word.charAt(i) == game.guessedLetters.get(j).charAt(0)) {
+					shroudedWord+=game.guessedLetters.get(j).charAt(0);
+					bool = true;
+					break;
+				}
+				
+			}
+			if(bool = false) {
+				shroudedWord+="-";
+			}
 		}
-		for (int i=0;i<game.guessedLetters.size(); i++) {
-			for (int j=0; j<shroudedWord.length(); j++) {
-				if(game.word.charAt(j) == game.guessedLetters.get(i).charAt(0)) {
-					shroudedWord.replace('-', game.guessedLetters.get(i).charAt(0));
+		System.out.println(shroudedWord);
+		game.revealedWord = shroudedWord;
+		return shroudedWord;
+	}*/
+	
+	public static String revealedWord(Game game) {
+		char[] charNiz = toCharNiz(game);
+		for (int i=0; i<charNiz.length; i++) {
+			for (int j=0; j<game.guessedLetters.size(); j++) {
+				if (game.word.charAt(i) == game.guessedLetters.get(j).charAt(0)) {
+					charNiz[i] = game.guessedLetters.get(j).charAt(0);
 				}
 			}
 		}
-		return shroudedWord;
+		String output = "";
+		for (int i=0; i<game.word.length(); i++) {
+			output+=charNiz[i];
+		}
+		game.revealedWord = output;
+		return output;
 	}
+	
+	public static char[] toCharNiz(Game game) {
+		char[] charniz = new char[game.word.length()];
+		for (int i=0; i<game.word.length(); i++) {
+			charniz[i] +='-';
+		}
+		return charniz;
+		}
 }

@@ -2,7 +2,11 @@
 <%@page import="hangman.controller.LoginController"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@page import="hangman.model.User"%>
+<%@page import="hangman.model.Game"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -10,6 +14,7 @@
 <title>HangmanApp</title>
 </head>
 <body>
+<%Game game = (Game) session.getAttribute("game"); %>
 	<div class="bg">
 		<div class="container">
 			<div class="leftPanel">
@@ -61,20 +66,13 @@
 			<div class="rightPanel">
 				<div class="loginDetails">
 				
-					<form name="form" action="GameServlet" method="post">
 						<h1 style="color:white; margin-left:100px">
 					
-						Word:
-						<%
-						if (request.getAttribute("wordHolder") != null) {
-					%>
-						<%=request.getAttribute("wordHolder")%>
-						<%
-							}
-						%>
+						Word:${game["revealedWord"]}
 					
 					</h1>
 						
+									<form name="form" action="GameServlet" method="post">
 				
 
 						<input type="text" name="guessWord" placeholder="GuessWord">
@@ -84,37 +82,16 @@
 					</form>
 					<div style="margin-top: 60px">
 					<p style="color: white; margin-left:100px" >
-						Score:
-						<%
-						if (request.getAttribute("score") != null) {
-					%>
-						<%=request.getAttribute("score")%>
-						<%
-							}
-						%>
+						Score:${game["score"]}
 					</p>
 					
 					
 					<p style="color: white; margin-left:100px; ">
-							Lives:
-							<%
-							if (request.getAttribute("wrongAnswers") != null) {
-						%>
-							<%=request.getAttribute("wrongAnswers")%>
-							<%
-								}
-							%>
+							Lives:${game["life"]}
 						</p>
 						
 						<p style="color: white; margin-left:100px">
-							Previous guesses:
-							<%
-							if (request.getAttribute("previouseGuesses") != null) {
-						%>
-							<%=request.getAttribute("previouseGuesses")%>
-							<%
-								}
-							%>
+							Previous guesses: ${game["guessedLetterString"]}
 						</p>
 						
 						</div>

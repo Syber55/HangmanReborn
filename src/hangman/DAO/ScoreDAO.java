@@ -7,7 +7,7 @@ import hangman.model.Score;
 
 public interface ScoreDAO {
 
-	public void addScoreToDB(Score score) throws SQLException;//Služit æe za dodavanje novog skora u bazu
+	public void addScoreToDB(String username, int score) throws SQLException;//Služit æe za dodavanje novog skora u bazu
 	
 	public ArrayList<Score> topTenScores() throws SQLException;//Top 10 bodovanja, vraæa score objekte u niz
 	

@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import hangman.DAO.ScoreDAO;
+import hangman.DAO.ScoreDAOImplementation;
 import hangman.DAO.WordDAO;
 import hangman.DAO.WordDAOImplementation;
 import hangman.controller.GameController;
@@ -36,42 +38,54 @@ public class GameServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-
-		// String UserGuess = req.getParameter("UserGuess").toUpperCase();
-		String enteredLetter = request.getParameter("guessWord");
-
 		
-
-		String Message = "";
-
-		String guessLetter = enteredLetter;
-		Game game = new Game();
-		WordDAO wd = new WordDAOImplementation();
-		if(game.word == "empty") {
-		try {
-			game.word = wd.getRandomWord();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		String letter = request.getParameter("guessWord");
+		ScoreDAO sd = new ScoreDAOImplementation();
+		
+		Game game = (Game)session.getAttribute("game");
+		System.out.println(game.score);
+		System.out.println(game.word);
+		System.out.println(letter);
+		if(game.score == 30) {
+			RequestDispatcher rd = request.getRequestDispatcher("Loss.jsp");
+			rd.forward(request, response);
+		} 
+		else if(game.word.equals(letter)) {
+			try {
+				sd.addScoreToDB(game.username, game.score);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			RequestDispatcher rd = request.getRequestDispatcher("Won.jsp");
+			rd.forward(request, response);
 		}
-		}
-		GameController gc = new GameController();
-		if(game.life == 0) {
-			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+		else if(game.word.equals(game.revealedWord)) {
+			try {
+				sd.addScoreToDB(game.username, game.score);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			RequestDispatcher rd = request.getRequestDispatcher("Won.jsp");
 			rd.forward(request, response);
 		}
 		
-		if(GameController.guessedLetterOrWord(guessLetter, game)) {
-			System.out.println(GameController.revealedWord(game));
-			RequestDispatcher rd = request.getRequestDispatcher("game.jsp");
-			rd.forward(request, response);
-		}
 		else {
-			RequestDispatcher rd = request.getRequestDispatcher("game.jsp");
-			rd.forward(request, response);
+		GameController.guessedLetterOrWord(letter, game);
+		request.setAttribute("game", game);
+		RequestDispatcher rd = request.getRequestDispatcher("game.jsp");
+		rd.forward(request, response);
 		}
-
+	}
 	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		HttpSession session = request.getSession();
+		Game game = (Game)request.getAttribute("game");
+		String url = "WebContent/game.jsp";
+		RequestDispatcher rd = request.getRequestDispatcher(url);
+		rd.forward(request, response);
+		
 	}
 
 }

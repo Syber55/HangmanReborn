@@ -29,9 +29,9 @@
 
 
 								<tr>
-									<td>${counter.count}</td>
-									<td>${game.username}</td>
-									<td>${game.score}</td>
+									<td>${score.id}</td>
+									<td>${score.username}</td>
+									<td>${score.score}</td>
 									<!-- <td>${game.id}</td> -->
 
 

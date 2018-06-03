@@ -14,14 +14,14 @@ public class ScoreDAOImplementation implements ScoreDAO {
 	Connection connection = DBConnection.getConnectionToDatabase();
 
 	@Override
-	public void addScoreToDB(Score score) throws SQLException {
+	public void addScoreToDB(String username, int score) throws SQLException {
 
 		String query = "INSERT INTO scores(score, username) VALUES (?, ?)";
 
 		try (PreparedStatement statement = connection.prepareStatement(query);) {
 
-			statement.setInt(1, score.getScore());
-			statement.setString(2, score.getUsername());
+			statement.setInt(1, score);
+			statement.setString(2, username);
 
 			statement.executeUpdate();
 		}
